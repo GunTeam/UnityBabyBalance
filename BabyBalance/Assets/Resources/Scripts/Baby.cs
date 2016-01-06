@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Baby : MonoBehaviour {
 
-	Sprite[] babySprites;
-	SpriteRenderer baby;
+	private Sprite[] babySprites;
+	private SpriteRenderer baby;
 
 	void Start () {
 		baby = gameObject.GetComponent<SpriteRenderer> ();
@@ -24,8 +24,16 @@ public class Baby : MonoBehaviour {
 			} else {
 				hinge.enabled = false;
 				hinge.enableCollision = true;
+				gameOver ();
 			}
 		}
+	}
 
+	public void startGame(){
+		Debug.Log ("Starting game");
+	}
+
+	public void gameOver(){
+		Application.LoadLevel (Application.loadedLevel);
 	}
 }
